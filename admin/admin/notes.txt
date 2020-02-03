@@ -1,0 +1,9 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $allowed = array('firstname', 'lastname', 'email');
+    $sql = "INSERT INTO jobform SET ".pdoSet($fields,$values);
+    $stm = $dbh->prepare($sql);
+    $stm->execute($values);
+    header("Location: ".$_SERVER['PHP_SELF']);
+    exit;
+}
